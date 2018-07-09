@@ -23,7 +23,7 @@ text.fontSize = "24";
 
 var textUnderLine = new Path([450,160],[780,160]);
 textUnderLine.strokeColor = "black";
-textUnderLine.strokeWidth = 3;
+textUnderLine.strokeWidth = 2;
 
 
 view.draw();
