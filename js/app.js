@@ -1,5 +1,9 @@
 paper.install(window);
 
+var options = {
+	strokeWidth:3,
+	step:1
+};
 var canvas = document.getElementById('mainCanvas');
 paper.setup(canvas);
 var path;
@@ -36,7 +40,14 @@ var shotkey = {
 			return true;
 		}
 		if(key == "=" && modifiers.control == true){
-			path.strokeWidth += 3;
+			options.strokeWidth += options.step;
+			return true;	
+		}
+		if(key == "-" && modifiers.control == true){
+			options.strokeWidth -= options.step;
+			if(options.strokeWidth == 0){
+				options.strokeWidth = 1;
+			}
 			return true;	
 		}
 	}	
@@ -80,7 +91,8 @@ view.onMouseDown = function (event) {
 		segments: [event.point],
 		strokeColor: 'black',
 		// Select the path, so we can see its segment points:
-		fullySelected:false 
+		fullySelected:false,
+		strokeWidth:options.strokeWidth
 	});
 }
 
