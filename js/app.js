@@ -9,9 +9,11 @@ var colors = ["red","green","blue"];
 for(var i = 0; i < 24 ; i++){
     blocks[i] = new Path.Rectangle([i * 50 + 10,200],[30,30]);
     blocks[i].strokeColor = colors[ i % 3]; 
+    blocks[i].strokeWidth = 2;
 
     blocks[i+24] = new Path.Rectangle([i * 50 + 10,60],[30,30]);
     blocks[i+24].strokeColor = colors[ i % 3]; 
+    blocks[i+24].strokeWidth = 2;
 }
 
 var text = new PointText(new Point(450, 150));
