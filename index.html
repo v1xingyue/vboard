@@ -4,8 +4,11 @@
 <script type="text/javascript" src="js/paper-full.min.js"></script>
 </head>
 <body>
-	<p style="margin-left:30px;"> ctrl+l -&gt; clear board , ctrl+= -&gt;enlarge path,  ctrl+- -&gt;reduce path ; c -&gt; change color </p>
-	<canvas id="mainCanvas" width="1200px" height="400px" style="border:1px dotted gray;border-radius:3px;margin:30px;"></canvas>
+	<div style="margin-left:30px;">
+		<canvas width="30px" height="30px" id="priew" style="float:left;border:1px dotted gray;border-radius:3px;"></canvas>
+		<p style="float:left;margin-top:5px;margin-left:5px">ctrl+l -&gt; clear board , ctrl+= -&gt;enlarge path,  ctrl+- -&gt;reduce path ; c -&gt; change color </p>
+	</div>
+	<canvas id="mainCanvas" width="1200px" height="400px" style="border:1px dotted gray;border-radius:3px;margin-left:30px;margin-top:10px;"></canvas>
     <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
