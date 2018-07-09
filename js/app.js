@@ -1,5 +1,9 @@
 paper.install(window);
 
+var colorChooser = document.createElement("input");
+colorChooser.type = "color";
+colorChooser.value = "black";
+
 var options = {
 	strokeWidth:3,
 	step:1
@@ -50,6 +54,11 @@ var shotkey = {
 			}
 			return true;	
 		}
+
+		if(key == "c"){
+			colorChooser.click();
+			return true;	
+		}
 	}	
 };
 
@@ -89,7 +98,7 @@ view.onMouseDown = function (event) {
 	// Create a new path and set its stroke color to black:
 	path = new Path({
 		segments: [event.point],
-		strokeColor: 'black',
+		strokeColor: colorChooser.value,
 		// Select the path, so we can see its segment points:
 		fullySelected:false,
 		strokeWidth:options.strokeWidth
@@ -120,6 +129,7 @@ view.onKeyDown = function(event) {
 	var key = event.key;
 	var modifiers = event.modifiers;
 	if(shotkey.route(key,modifiers)){
+		console.log(options);
         return false;
 	}
 }
