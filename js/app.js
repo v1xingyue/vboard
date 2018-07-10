@@ -2,10 +2,13 @@ paper.install(window);
 
 var colorChooser = document.createElement("input");
 colorChooser.type = "color";
-colorChooser.value = "black";
+colorChooser.value = "#0000FF";
+colorChooser.onchange = function(){
+	updatePreview();
+};
 
 var options = {
-	strokeWidth:3,
+	strokeWidth:5,
 	step:1
 };
 var canvas = document.getElementById('mainCanvas');
@@ -45,6 +48,7 @@ var shotkey = {
 		}
 		if(key == "=" && modifiers.control == true){
 			options.strokeWidth += options.step;
+			updatePreview();
 			return true;	
 		}
 		if(key == "-" && modifiers.control == true){
@@ -52,6 +56,7 @@ var shotkey = {
 			if(options.strokeWidth == 0){
 				options.strokeWidth = 1;
 			}
+			updatePreview();
 			return true;	
 		}
 
@@ -133,3 +138,16 @@ view.onKeyDown = function(event) {
         return false;
 	}
 }
+
+var pCanvas = document.getElementById("priew");
+var pContext = pCanvas.getContext("2d");
+function updatePreview(){
+	var w = options.strokeWidth;
+	var c = 15 - w/2;
+	pContext.clearRect(0,0,100,100);	
+	pContext.fillStyle = colorChooser.value;
+	pContext.fillRect(c,c,w,w);
+	pContext.stroke();
+}
+
+updatePreview();
