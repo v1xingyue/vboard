@@ -151,3 +151,19 @@ function updatePreview(){
 }
 
 updatePreview();
+var history = { 
+    historyData:[]  
+    ,push:function(){
+        var data = project.exportJSON()
+        this.historyData.push(imgData); 
+        if(this.historyData.length >= 10){
+            this.historyData.shift();
+        }   
+    },  
+    pop:function(){
+        var popData = this.historyData.pop();   
+        project.importJSON(popData);
+    }   
+};
+
+historyData.push();
